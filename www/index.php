@@ -1,4 +1,24 @@
 <?php
+$a = 3;
+$b = 5;
+echo "a = $a, b = $b <br>";
+
+$c = $b;
+
+$b = $a;
+$a = $c;
+echo "a = $a, b = $b<br>";
+
+$a1 = 3;
+$b1 = 5;
+echo "a1 = $a1, b1 = $b1<br>";
+$a1 = $a1 + $b1;
+$b1 = $a1-$b1;
+$a1 = $a1 - $b1;
+echo "a1 = $a1, b1 = $b1<br>";
+
+
+
 
 ?>
 <!doctype html>
