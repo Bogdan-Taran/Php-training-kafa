@@ -1,22 +1,16 @@
 <?php
-$a = 3;
-$b = 5;
-echo "a = $a, b = $b <br>";
-
-$c = $b;
-
-$b = $a;
-$a = $c;
-echo "a = $a, b = $b<br>";
-
-$a1 = 3;
-$b1 = 5;
-echo "a1 = $a1, b1 = $b1<br>";
-$a1 = $a1 + $b1;
-$b1 = $a1-$b1;
-$a1 = $a1 - $b1;
-echo "a1 = $a1, b1 = $b1<br>";
-
+var_dump(!1);
+var_dump(!0);
+var_dump(!true);
+var_dump(2 && 3);
+var_dump(5 && 0);
+var_dump(3 || 0);
+var_dump(5 / 1);
+var_dump(1 / 5);
+var_dump(5 + '5string');
+var_dump('5' == 5);
+var_dump('05' == 5);
+var_dump('05' == '5');
 
 
 
