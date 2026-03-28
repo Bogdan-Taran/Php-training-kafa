@@ -39,6 +39,55 @@ echo '<br>';
 //суть в том, что в условии проверяется что-то и это что-то "не пусто" или не является нулём (ключевое слово), то возвращает true
 $chet = 5%2 == 0 ? 'Число чётное': 'Числов нечётное';
 echo $chet;
+
+echo '<br><br>Functions in php<br>';
+
+function minValueBetweenThreeFloats(float $a, float $b, float $c){
+    if($a < $b){
+        if($a < $c){
+            return $a;
+        }else{
+            return $c;
+        }
+    }else{
+        if($b < $c){
+            return $b;
+        }
+    }
+}
+echo 'Минимальный float из трёх ';
+$minValue = minValueBetweenThreeFloats(1.5, 2.1, -1.123);
+echo $minValue . '<br>';
+
+$a = 12;
+$b = 8;
+echo "Original a: $a, b: $b <br>";
+function linkMultiplication(&$a, &$b){
+    $a*=2;
+    $b*=2;
+}
+linkMultiplication($a, $b);
+echo "Modified a: $a, b: $b <br>";
+
+
+function factorialRecursiveness($num){
+    if ($num <= 1) {
+        return 1;
+    }
+    return $num * factorialRecursiveness($num - 1);
+}
+echo 'Рекурсивный факториал от числа 5! = ' . factorialRecursiveness(5) . '<br>';
+
+function printNumbersFromZeroUptoValueRecursiveness($num, $current = 0){
+    if ($current > $num) {
+        return;
+    }
+    echo $current . '<br>';
+    printNumbersFromZeroUptoValueRecursiveness($num, $current + 1);
+}
+$numPrinting = 5;
+echo 'Рекурсивный вывод чисел от 0 до ' . $numPrinting . ':<br>';
+printNumbersFromZeroUptoValueRecursiveness($numPrinting);
 ?>
 <!doctype html>
 <html lang="ru">
