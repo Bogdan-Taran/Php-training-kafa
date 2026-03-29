@@ -7,7 +7,7 @@ $password = !empty($_GET['password']) ? $_GET['password'] : 'пароль не �
     <title>Форма входа</title>
 </head>
 <body>
-<form action="/www/login.php" method="get">
+<form action="/www/login.php" method="post">
     <label>
         Логин <input type="text" name="login">
     </label>
