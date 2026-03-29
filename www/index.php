@@ -1,10 +1,22 @@
 <?php
-$array_nums = [1, 3, 2];
-sort($array_nums);
-$str_array = implode(':', $array_nums);
-echo $str_array;
-
-$array_2 = [1, 2, 3, 4, 5];
-$array_2_2 = range(2, 4, 1);
-var_dump($array_2_2);
+$login = !empty($_GET['login']) ? $_GET['login'] : 'логин не передан!';
+$password = !empty($_GET['password']) ? $_GET['password'] : 'пароль не передан!';
 ?>
+<html>
+<head>
+    <title>Форма входа</title>
+</head>
+<body>
+<form action="/www/login.php" method="get">
+    <label>
+        Логин <input type="text" name="login">
+    </label>
+    <br>
+    <label>
+        Пароль <input type="password" name="password">
+    </label>
+    <br>
+    <input type="submit" value="Войти">
+</form>
+</body>
+</html>
