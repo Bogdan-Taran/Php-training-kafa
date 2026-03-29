@@ -24,6 +24,9 @@
 <body>
 <table id="layout">
     <tr>
-        <td colspan="2">HEADER</td>
+        <td><?= $header ?></td>
+        <td><?= $header_logo ?></td>
+        <td><?= $header_text ?></td>
+        <td><?= $header_text2 ?></td>
     </tr>
     <tr>

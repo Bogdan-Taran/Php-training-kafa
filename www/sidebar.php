@@ -1,1 +1,1 @@
-<td id="sidebar">SIDEBAR</td>
+<td id="sidebar"><?= $sidebar  ?></td>
