@@ -1,23 +1,29 @@
 <?php
-$array_even_nums = [];
-$start = 345;
-while ($start <= 357){
-    if($start % 2 == 0){
-        $array_even_nums[] = $start;
-    }
-    $start++;
-}
-foreach ($array_even_nums as $num){
-    echo $num . '<br>';
-}
+$array = [2, 3, 6, 1, 23, 2, 56, 7, 1, 15];
+$number = 1;
 
-/*
-while (true) {
-echo 1;
+function foundValue($array, $value) :bool {
+    foreach ($array as $item) {
+        if ($item === $value) {
+            return true;
+        }
+    }
+    return false;
 }
-приводит к бесконечному циклу
-а вот директива max_execution_time в файле конфигурации php.ini
-нужна для ограничения времени выполнения PHP-скриптов, т.е. чтобы предотвратить долгое выполнение скрипта
- */
+$isFound = foundValue($array, $number);
+echo $isFound;
+
+function countValueInputs($array, $value):int {
+    $count = 0;
+    foreach ($array as $item) {
+        if ($item === $value) {
+            $count++;
+        }
+    }
+    return $count;
+}
+$count = countValueInputs($array, $number);
+echo '<br>Количество вхождений числа' . $number . 'в массиве равно ' . $count;
+
 
 ?>
