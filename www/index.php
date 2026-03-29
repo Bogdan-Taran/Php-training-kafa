@@ -1,18 +1,23 @@
 <?php
-$carsSpeeds = [
-    95,
-    140,
-    78
-];
-
-$sumOfSpeeds = 0;
-$count = 0;
-
-foreach ($carsSpeeds as $speed) {
-    $sumOfSpeeds += $speed;
-    $count++;
+$array_even_nums = [];
+$start = 345;
+while ($start <= 357){
+    if($start % 2 == 0){
+        $array_even_nums[] = $start;
+    }
+    $start++;
 }
-$averageSpeed = $sumOfSpeeds / $count;
+foreach ($array_even_nums as $num){
+    echo $num . '<br>';
+}
 
-echo 'Средняя скорость движения по трассе: ' . $averageSpeed;
+/*
+while (true) {
+echo 1;
+}
+приводит к бесконечному циклу
+а вот директива max_execution_time в файле конфигурации php.ini
+нужна для ограничения времени выполнения PHP-скриптов, т.е. чтобы предотвратить долгое выполнение скрипта
+ */
+
 ?>
