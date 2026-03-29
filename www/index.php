@@ -1,18 +1,20 @@
-<?php
-
-?>
-<!doctype html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Встраивание выражение</title>
+    <title>Фотоальбом</title>
 </head>
 <body>
-<h1>Пример встраивания php в html</h1>
-2 + 2 = <?php echo 2+2?>
+<?php
+$files = scandir(__DIR__ . '/uploads');
+$links = [];
+foreach ($files as $fileName) {
+    if ($fileName === '.' || $fileName === '..') {
+        continue;
+    }
+    $links[] = 'https://myproject.local/www/uploads/' . $fileName;
+}
 
+foreach ($links as $link):?>
+    <a href="<?= $link ?>"><img src="<?= $link ?>" height="80px"></a>
+<?php endforeach; ?>
 </body>
 </html>
