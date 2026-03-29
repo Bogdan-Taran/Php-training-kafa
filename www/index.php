@@ -1,29 +1,10 @@
 <?php
-$array = [2, 3, 6, 1, 23, 2, 56, 7, 1, 15];
-$number = 1;
+$array_nums = [1, 3, 2];
+sort($array_nums);
+$str_array = implode(':', $array_nums);
+echo $str_array;
 
-function foundValue($array, $value) :bool {
-    foreach ($array as $item) {
-        if ($item === $value) {
-            return true;
-        }
-    }
-    return false;
-}
-$isFound = foundValue($array, $number);
-echo $isFound;
-
-function countValueInputs($array, $value):int {
-    $count = 0;
-    foreach ($array as $item) {
-        if ($item === $value) {
-            $count++;
-        }
-    }
-    return $count;
-}
-$count = countValueInputs($array, $number);
-echo '<br>Количество вхождений числа' . $number . 'в массиве равно ' . $count;
-
-
+$array_2 = [1, 2, 3, 4, 5];
+$array_2_2 = range(2, 4, 1);
+var_dump($array_2_2);
 ?>
