@@ -1,26 +1,57 @@
 <?php
-
-class A
+abstract class HumanAbstract
 {
-    public function method1()
+    private $name;
+
+    public function __construct(string $name)
     {
-        return $this->method2();
+        $this->name = $name;
     }
 
-    protected function method2()
+    public function getName(): string
     {
-        return 'A';
+        return $this->name;
+    }
+
+    abstract public function getGreetings(): string;
+    abstract public function getMyNameIs(): string;
+
+    public function introduceYourself(): string
+    {
+        return $this->getGreetings() . '! ' . $this->getMyNameIs() . ' ' . $this->getName() . '.';
     }
 }
 
-class B extends A
-{
-    protected function method2()
+class RussianHuman extends HumanAbstract{
+    public function getGreetings(): string
     {
-        return 'B';
+        return 'Привет';
     }
+    public function getMyNameIs(): string
+    {
+        return 'Меня зовут';
+    }
+
+
 }
 
-$b = new B();
+class EnglishHuman extends HumanAbstract{
+    public function getGreetings(): string
+    {
+        return 'Hello';
+    }
+    public function getMyNameIs(): string
+    {
+        return 'My name is';
+    }
 
-echo $b->method1();
+}
+
+
+$ivanHuman = new RussianHuman('Иван');
+echo $ivanHuman->introduceYourself() . "\n";
+echo '<br>';
+
+$johnHuman = new EnglishHuman('John');
+echo $johnHuman->introduceYourself() . "\n";
+
