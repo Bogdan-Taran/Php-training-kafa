@@ -1,57 +1,59 @@
 <?php
-abstract class HumanAbstract
+
+class User
 {
+    private $role;
+
     private $name;
 
-    public function __construct(string $name)
+    public function __construct(string $role, string $name)
     {
+        $this->role = $role;
         $this->name = $name;
     }
-
-    public function getName(): string
+    public static function createAdmin(string $name)
     {
-        return $this->name;
-    }
-
-    abstract public function getGreetings(): string;
-    abstract public function getMyNameIs(): string;
-
-    public function introduceYourself(): string
-    {
-        return $this->getGreetings() . '! ' . $this->getMyNameIs() . ' ' . $this->getName() . '.';
+        return new self('admin', $name);
     }
 }
 
-class RussianHuman extends HumanAbstract{
-    public function getGreetings(): string
-    {
-        return 'Привет';
-    }
-    public function getMyNameIs(): string
-    {
-        return 'Меня зовут';
-    }
-
-
-}
-
-class EnglishHuman extends HumanAbstract{
-    public function getGreetings(): string
-    {
-        return 'Hello';
-    }
-    public function getMyNameIs(): string
-    {
-        return 'My name is';
-    }
-
-}
-
-
-$ivanHuman = new RussianHuman('Иван');
-echo $ivanHuman->introduceYourself() . "\n";
+$admin = User::createAdmin('Иван');
+var_dump($admin);
 echo '<br>';
 
-$johnHuman = new EnglishHuman('John');
-echo $johnHuman->introduceYourself() . "\n";
+class A
+{
+    public static $x;
+
+    public function getX()
+{
+    return self::$x;
+}
+}
+
+A::$x = 5;
+$a = new A();
+var_dump($a->getX()); // 5
+
+
+
+class Human
+{
+    private static $count = 0;
+
+    public function __construct()
+    {
+        self::$count++;
+    }
+
+    public static function getCount()
+    {
+        return self::$count;
+    }
+}
+
+$human1 = new Human();
+$human2 = new Human();
+$human3 = new Human();
+echo 'Людей уже ' . Human::getCount(); // 3
 
