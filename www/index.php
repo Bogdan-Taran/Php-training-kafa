@@ -1,36 +1,73 @@
 <?php
-class Cat
+
+class Post
 {
-    private $name;
-    private $color;
+    private $title;
+    private $text;
 
-
-    public function __construct(string $name, string $color)
+    public function __construct(string $title, string $text)
     {
-        $this->name = $name;
-        $this->color = $color;
-    }
-    public function sayHello()
-    {
-        echo 'Привет! Меня зовут ' . $this->name . ', я ' . $this->color . ' цвета.<br>';
+        $this->title = $title;
+        $this->text = $text;
     }
 
-    public function setName(string $name)
+    public function getTitle()
     {
-        $this->name = $name;
-    }
-    public function getName(): string
-    {
-        return $this->name;
-    }
-    public function getColor(): string{
-        return $this->color;
+        return $this->title;
     }
 
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    public function setText($text): void
+    {
+        $this->text = $text;
+    }
 }
 
+class Lesson extends Post
+{
+    private $homework;
 
-$cat1 = new Cat('Снежок', 'белого');
-$cat2 = new Cat('Барсик', 'рыжего');
-$cat1->sayHello();
-$cat2->sayHello();
+    public function __construct(string $title, string $text, string $homework)
+    {
+        parent::__construct($title, $text);
+        $this->homework = $homework;
+    }
+
+    public function getHomework(): string
+    {
+        return $this->homework;
+    }
+
+    public function setHomework(string $homework): void
+    {
+        $this->homework = $homework;
+    }
+}
+
+class PaidLesson extends Lesson{
+    private $price;
+
+    public function __construct(string $title, string $text, string $homework, $price){
+        parent::__construct($title, $text, $homework);
+        $this->price = $price;
+    }
+
+    public function getPrice($price){
+        return $this->price;
+    }
+    public function setPrice($price) :void{
+        $this->price = $price;
+    }
+}
+
+$paidLesson1 = new PaidLesson('Урок о наследовании в PHP', 'Лол, кек, чебурек', 'Ложитесь спать, утро вечера мудренее', 99.90);
+var_dump($paidLesson1);
